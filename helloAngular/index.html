@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="twebDemoApp" ng-cloack lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Olivier Liechti">
+
+    <title>TWEB: Angular Examples</title>
+
+    <link href="css/heroic-features.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/angular.css" rel="stylesheet">
+</head>
+
+
+<body ng-controller="PageController">
+
+<div class="container">
+
+    <!-- Header -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Angular.JS @ TWEB</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <!-- Page Content -->
+
+    <div class="container" ng-cloak>
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer">
+            <h1 ng-click="changeTitle()">{{ title }}</h1>
+        </header>
+
+        <div class="panel panel-default" ng-controller="BeersController">
+            <div class="panel-body">
+                <ul ng-repeat="beer in beers">
+                    <li> {{ beer }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-default" ng-controller="BeersController">
+            <div class="panel-body">
+                {{ randomBeer.title }}
+            </div>
+        </div>
+
+        <div class="panel panel-default" ng-controller="FormController">
+            <div class="panel-body">
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="userName" class="col-sm-2 control-label">Name</label>
+
+                        <div class="col-sm-10">
+                            <input ng-model="user.name" type="text" class="form-control" id="userName"
+                                   placeholder="Your name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Greetings</label>
+
+                        <div class="col-sm-10">
+                            <p class="form-control-static">Hello {{ user.name }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Time</label>
+
+                        <div class="col-sm-10">
+                            <p class="form-control-static">It is now {{ getTime() | date : 'hh:mm:ss'}}.</p>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; HEIG-VD, Olivier Liechti, 2015</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Angular -->
+<script src="js/angular.js"></script>
+
+<!-- My Angular components -->
+<script src="js/app/app.js"></script>
+
+</body>
+
+
+</html>
