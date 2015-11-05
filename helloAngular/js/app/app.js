@@ -13,7 +13,11 @@
 
     });
 
-    appModule.controller('BeersController', function ($scope, beerService, $http, $interval) {
+    /**
+     * The BeersController depends on other services: $scope, beersService (our own service) and
+     * $http (provided by AngularJS)
+     */
+    appModule.controller('BeersController', function ($scope, beerService, $http) {
         $scope.beers = beerService.beers;
         $scope.randomBeer = {title: "Loading..."};
 
@@ -27,6 +31,10 @@
     });
 
 
+    /**
+     * factory is one way to create a service. In this case, we don't have any dependency
+     * on other services
+     */
     appModule.factory('beerService', function () {
         var beers = ["heineken", "cardinal", "guiness"];
         return {
